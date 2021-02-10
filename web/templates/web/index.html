@@ -1,0 +1,63 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'web/style.css' %}">
+    <link rel="stylesheet" href="{% static 'web/prop.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayhan Personal Grave</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="banner" src="https://media.discordapp.net/attachments/808939768171724800/808939874333622272/banner.png?width=960&height=468" alt="banner">
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-red text-white">
+                        Who is Rayhan?
+                    </div>
+                    <div class="card-body">
+                        Rayhan Rusyd is a computer hobbyist who love to work on a small-scale project. He is a student majoring in Computer Engineering. You could find more information about him here.
+                        <p>He made this site to share everything that he loves. Ranging from his personal favourite video games, to his favourtie part of learning programming.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-green text-white">
+                        Connect with Rayhan
+                    </div>
+                    <div class="card-body">
+                        <a href="https://github.com/ryuu12/"><img class="img-card" src="https://media.discordapp.net/attachments/808939768171724800/808939865991413800/github.png" alt="github"></a>
+                        <a href="https://www.instagram.com/rayhanrusyd/"><img src="https://media.discordapp.net/attachments/808939768171724800/808939867319959562/instagram.png" alt="" class="img-card"></a>
+                        <a href="https://twitter.com/rayhanrusyd"><img src="https://media.discordapp.net/attachments/808939768171724800/808939870340775956/twitter.png" alt="" class="img-card"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-blue text-white">
+                        Latest post from Rayhan
+                    </div>
+                    <div class="card-body">
+                        {% for post in posts %}
+                        <h3>{{ post.title }} ({{ post.date_posted }})</h3>
+                        <p>{{ post.content|truncatechars:120}} <a class="text-green" href="#">Read More</a> </p>
+                        {% endfor %}
+                        </div>
+                    <div class="card-footer">
+                        <a href="{% url 'web-post' %}" class="text-green">See all post</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img src="https://media.giphy.com/media/BzyTuYCmvSORqs1ABM/giphy.gif" alt="" class="banner">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>2021 &copy; Rayhan Rusyd</p>
+    </footer>
+</body>
+</html>

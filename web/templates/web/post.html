@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'web/style.css' %}">
+    <link rel="stylesheet" href="{% static 'web/prop.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayhan Post</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="https://media.discordapp.net/attachments/808939768171724800/808939867731918898/banner2.png?width=960&height=222" alt="" class="banner">
+            </div>
+            <div class="col">
+                <p class="text-center">[<a href="{% url 'web-home' %}" class="text-green">Homepage</a>]</p>
+            </div>
+            {% for post in posts %}
+            <div class="col">
+                
+                <div class="card">
+                    <div class="card-header bg-blue text-white">
+                        {{ post.title }} ({{ post.date_posted }})
+                    </div>
+                    <div class="card-body text-justify">
+                        <a href="{{ post.image_url }}"><img src="{{ post.image_url }}" alt="post image" class="img-card w-30"></a>
+                        <p>{{ post.content }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="text-green">Read More</a> 
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+        <p>2021 &copy; Rayhan Rusyd</p>
+    </footer>
+</body>
+</html>
