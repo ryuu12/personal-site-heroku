@@ -13,26 +13,21 @@
                 <img src="https://media.discordapp.net/attachments/808939768171724800/808939867731918898/banner2.png?width=960&height=222" alt="" class="banner">
             </div>
             <div class="col">
-                <p class="text-center">[<a href="{% url 'web-home' %}" class="text-green">Homepage</a>]</p>
+                <p class="text-center">[<a href="{% url 'web-post' %}" class="text-green">Return</a>]</p>
             </div>
-            {% for post in posts %}
             <div class="col">
                 
                 <div class="card">
                     <div class="card-header bg-blue text-white">
-                        {{ post.title }} ({{ post.date_posted }})
+                        {{ object.title }} ({{ object.date_posted }})
                     </div>
                     <div class="card-body text-justify">
-                        <a href="{{ post.image_url }}"><img src="{{ post.image_url }}" alt="post image" class="img-card w-30"></a>
-                        <p>{{ post.content | truncatechars:1000 }}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'post-detail' post.id %}" class="text-green">Read More</a> 
+                        <a href="{{ object.image_url }}"><img src="{{ object.image_url }}" alt="post image" class="img-card w-30"></a>
+                        <p>{{ object.content }}</p>
                     </div>
                 </div>
                 
             </div>
-            {% endfor %}
         </div>
     </div>
     <footer>

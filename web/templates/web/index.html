@@ -43,7 +43,7 @@
                     <div class="card-body">
                         {% for post in posts %}
                         <h3>{{ post.title }} ({{ post.date_posted }})</h3>
-                        <p>{{ post.content|truncatechars:120}} <a class="text-green" href="#">Read More</a> </p>
+                        <p>{{ post.content|truncatechars:120}} <a class="text-green" href="{% url 'post-detail' post.id %}">Read More</a> </p>
                         {% endfor %}
                         </div>
                     <div class="card-footer">

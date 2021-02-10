@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
 from .models import Post
 
 def home(request):
@@ -12,3 +13,6 @@ def post(request):
         'posts': Post.objects.all()
     }
     return render(request, 'web/post.html', context)
+
+class PostDetailView(DetailView):
+    model = Post
