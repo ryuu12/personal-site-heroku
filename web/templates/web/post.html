@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body text-justify">
                         <a href="{{ post.image_url }}"><img src="{{ post.image_url }}" alt="post image" class="img-card w-30"></a>
-                        <p>{{ post.content | truncatechars:1000 }}</p>
+                        <p>{{ post.content|truncatechars:1000 }}</p>
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'post-detail' post.id %}" class="text-green">Read More</a> 
